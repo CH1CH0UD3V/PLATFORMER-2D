@@ -490,7 +490,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6812895151122136691}
-  - component: {fileID: 7854488162165435796}
   m_Layer: 0
   m_Name: Physic
   m_TagString: Untagged
@@ -513,22 +512,6 @@ Transform:
   m_Father: {fileID: 1589823208561824597}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &7854488162165435796
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4327952803360896295}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.042070866, y: -1.0517693}
-  m_Size: {x: 2.094142, y: 4.2818213}
-  m_Direction: 0
 --- !u!1 &5312348835930424499
 GameObject:
   m_ObjectHideFlags: 0
