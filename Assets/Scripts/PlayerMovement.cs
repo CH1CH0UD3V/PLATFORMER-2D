@@ -9,4 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] InputActionReference _jumpInput;
     [SerializeField] InputActionReference _actionButtonInput;
     [SerializeField] InputActionReference _fightInput;
+
+
+    private void Update()
+    {
+        
+    }
 }
