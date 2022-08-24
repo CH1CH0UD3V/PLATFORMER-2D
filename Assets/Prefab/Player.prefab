@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 617444ecf7303c548bb2b922d89ac6ad, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -245,8 +245,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveInput: {fileID: 134646138468947821, guid: 617444ecf7303c548bb2b922d89ac6ad, type: 3}
   _jumpInput: {fileID: 6361887507785292416, guid: 617444ecf7303c548bb2b922d89ac6ad, type: 3}
-  _actionButtonInput: {fileID: 0}
-  _fightInput: {fileID: 0}
+  _actionButtonInput: {fileID: -3059773456260503179, guid: 617444ecf7303c548bb2b922d89ac6ad, type: 3}
+  _fightInput: {fileID: -8192334916409029295, guid: 617444ecf7303c548bb2b922d89ac6ad, type: 3}
+  _speed: 10.36
+  _root: {fileID: 1589823208561824597}
+  _animator: {fileID: 0}
+  _movingThreshold: 0.1
 --- !u!1 &1746433477182922455
 GameObject:
   m_ObjectHideFlags: 0
