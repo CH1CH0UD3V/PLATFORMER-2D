@@ -6,19 +6,18 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] InputActionReference _moveInput;
-    //[SerializeField] InputActionReference _jumpInput;
+    [SerializeField] InputActionReference _jumpInput;
     //[SerializeField] InputActionReference _actionButtonInput;
     //[SerializeField] InputActionReference _fightInput;
-    [SerializeField] float _speed = 2f;
+    [SerializeField] float _speed = 4f;
     [SerializeField] Transform _root;
     [SerializeField] Animator _animator;
     [SerializeField] float _movingThreshold = 0.1f;
-    //[SerializeField] float _jumpingThreshold = 0.1f;
 
-    //[SerializeField] Rigidbody2D _Player;
+    [SerializeField] Rigidbody2D _rb;
+    [SerializeField] Vector3 _jumpDirection;
 
     Vector2 _playerMovement;
-    //Vector2 _playerJump;
 
 
     private void Start()
@@ -29,9 +28,9 @@ public class PlayerMovement : MonoBehaviour
         _moveInput.action.canceled += EndMove; ;
 
 
-       /* //jump
+       //jump
         _jumpInput.action.started += StartJump;
-        _jumpInput.action.canceled += EndJump;*/
+        _jumpInput.action.canceled += EndJump;
     }
 
 
@@ -58,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        //Orientation personnage
+        //Orientation personnage (le personnage s'oriente en fonction de la direction que )
 
         if (direction.x > 0) //Right
         {
@@ -70,23 +69,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-       /* Debug.Log(_playerJump);
+        //Deplacement Vertical
 
-        //Mouvement
-        Vector2 jumpDirection = new Vector2(0, _playerJump.y);
-        _root.transform.Translate(jumpDirection * Time.fixedDeltaTime * _speed);
+        //Debug.Log(_playerJump);
 
-        //Animator
-        Debug.Log($"Magnitude : {jumpDirection.magnitude}");
-
-        if (jumpDirection.magnitude > _jumpingThreshold)  //si on est en train de bouger
-        {
-            _animator.SetBool("IsJumping", true);
-        }
-        else
-        {
-            _animator.SetBool("IsJumping", false);
-        }*/
+        
 
     }
 
@@ -110,16 +97,14 @@ public class PlayerMovement : MonoBehaviour
     
     
     
-   /* private void StartJump(InputAction.CallbackContext obj)
+    private void StartJump(InputAction.CallbackContext obj)
     {
         Debug.Log("j'ai sauté");
-
-        //_playerJump = obj.ReadValue<Vector2>();
-        //Debug.Log($"Jump touche enfoncé ! {_playerJump}");
+        _rb.AddForce(_jumpDirection);
     }
 
     private void EndJump(InputAction.CallbackContext obj)
     {
         Debug.Log("j'ai fini");
-    }*/
+    }
 }
