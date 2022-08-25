@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     [SerializeField] InputActionReference _moveInput;
     [SerializeField] InputActionReference _jumpInput;
     //[SerializeField] InputActionReference _actionButtonInput;
@@ -13,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform _root;
     [SerializeField] Animator _animator;
     [SerializeField] float _movingThreshold = 0.1f;
-
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] Vector3 _jumpDirection;
 
@@ -67,14 +67,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _root.rotation = Quaternion.Euler (0, 180, 0);
         }
-
-
-        //Deplacement Vertical
-
-        //Debug.Log(_playerJump);
-
-        
-
     }
 
 
