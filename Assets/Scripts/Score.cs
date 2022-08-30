@@ -5,15 +5,24 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _text;
-    [SerializeField] int _score;
-    //int _score;
+    [SerializeField] TextMeshProUGUI _textAle;
+    [SerializeField] TextMeshProUGUI _textMutton;
+    int _scoreAle;
+    int _scoreMutton;
 
-    public void AddScore()
+    public void AddScoreMutton(int scoreToAdd)
     {
         Debug.Log("C'est bon ca....ouais");
 
-        _score++;
-        _text.text = _score.ToString();
+        _scoreMutton += scoreToAdd ;
+        _textMutton.text = _scoreMutton.ToString();
+    }
+
+    public void AddScoreAle(int scoreToAdd)
+    {
+        Debug.Log("C'est bon ca....ouais");
+
+        _scoreAle += scoreToAdd;
+        _textAle.text = _scoreAle.ToString();
     }
 }

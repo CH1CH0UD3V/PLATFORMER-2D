@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class mutton : MonoBehaviour
 {
+    [SerializeField] int _scoreValue;
     Score _score;
 
     private void Start()
@@ -17,7 +18,7 @@ public class mutton : MonoBehaviour
         {
             Debug.Log("AH!! UN JOUEUR");
             GameObject.Destroy(gameObject);
-            _score.AddScore();
+            _score.AddScoreMutton(_scoreValue);
         }
     }
 }
