@@ -5,19 +5,26 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
+    [Header("Input")]
     [SerializeField] InputActionReference _moveInput;
     [SerializeField] InputActionReference _jumpInput;
     //[SerializeField] InputActionReference _actionButtonInput;
     //[SerializeField] InputActionReference _fightInput;
+    [Header("Movement")]
     [SerializeField] float _speed = 4f;
     [SerializeField] Transform _root;
+    [Header("Animator")]
     [SerializeField] Animator _animator;
     [SerializeField] float _movingThreshold = 0.1f;
+    [Header("Jump")]
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] Vector3 _jumpDirection;
+    [Header("Raycast")]
+    [SerializeField] Transform _footPoint;
+    [SerializeField] float _raycastLength;
 
     Vector2 _playerMovement;
+    bool _isGrounded;
 
 
     private void Start()
@@ -67,8 +74,22 @@ public class PlayerMovement : MonoBehaviour
         {
             _root.rotation = Quaternion.Euler (0, 180, 0);
         }
-    }
 
+        //isGrounded
+
+        Debug.DrawRay(_footPoint.position, Vector2.down * _raycastLength, Color.red, 1f);
+        int raycastLayerMask = LayerMask.GetMask("Ground");
+        RaycastHit2D hit = Physics2D.Raycast(_footPoint.position, Vector2.down, _raycastLength, raycastLayerMask);
+
+        if (hit.collider != null)
+        {
+            _isGrounded = true;
+        }
+        else
+        {
+            _isGrounded = false;
+        }
+    }
 
     private void StartMove(InputAction.CallbackContext obj)
     {
@@ -87,12 +108,18 @@ public class PlayerMovement : MonoBehaviour
     }
     
     
-    
-    
     private void StartJump(InputAction.CallbackContext obj)
     {
-        Debug.Log("j'ai sauté");
-        _rb.AddForce(_jumpDirection);
+        if (_isGrounded == true)
+        {
+            Debug.Log("j'ai sauté");
+            _rb.AddForce(_jumpDirection);
+        }
+
+        else
+        {
+            Debug.Log("attens ouech t'as pas atteint le sol");
+        }
     }
 
     private void EndJump(InputAction.CallbackContext obj)
